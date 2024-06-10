@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 
-const BasicCubeScene = () => {
+const GeometriesLesson = () => {
     const canvasRef = useRef();
 
     useEffect(() => {
@@ -13,17 +13,26 @@ const BasicCubeScene = () => {
         const scene = new THREE.Scene();
 
         // Geometry
-        const geometry = new THREE.BoxGeometry(1, 1, 1)
+        const geometry = new THREE.BufferGeometry()
+
+        const count = 50;
+        const positionsArray = new Float32Array(count * 3 * 3);
+        for (let i = 0; i < count * 3 * 3; i++) {
+            positionsArray[i] = Math.random() - 0.5
+        }
+
+        const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3)
+        geometry.setAttribute('position', positionsAttribute)
 
         // Material
-        const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+        const material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true })
 
         //Mesh Object
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
 
         // Camera
-        const sizes = { width: 800, height: 600 }
+        const sizes = { width: window.innerWidth, height: window.innerHeight }
         const camera = new THREE.PerspectiveCamera(110, sizes.width / sizes.height)
         camera.position.set(0, 0, 2)
         scene.add(camera)
@@ -55,7 +64,7 @@ const BasicCubeScene = () => {
 
         // --------- Animate function ---------
         const animate = () => {
-            mesh.rotation.y += 0.003
+            // mesh.rotation.y += 0.003
 
             renderer.render(scene, camera)
             window.requestAnimationFrame(animate)
@@ -76,4 +85,4 @@ const BasicCubeScene = () => {
     )
 }
 
-export default BasicCubeScene
+export default GeometriesLesson
