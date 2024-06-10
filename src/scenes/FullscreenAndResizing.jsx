@@ -7,7 +7,7 @@ const FullscreenAndResizing = () => {
 
     useEffect(() => {
         // Canvas
-        const canvas = canvasRef.current
+        const canvas = canvasRef.current;
 
         // Scene
         const scene = new THREE.Scene();
