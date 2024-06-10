@@ -1,8 +1,3 @@
-# React + Vite
+# Three.js Journey Learning Repository
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository contains all the projects, experiments, and notes from my progress through the [Three.js Journey](https://threejs-journey.com/) course by Bruno Simon. The course provides a comprehensive guide to mastering Three.js and building stunning 3D experiences for the web. This repository serves as a documentation of my learning process, showcasing the skills and concepts I've acquired along the way.
