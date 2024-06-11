@@ -8,12 +8,13 @@ import GeometriesLesson from './scenes/GeometriesLesson'
 import DebugUILesson from './scenes/DebugUILesson'
 import TexturesLesson from './scenes/TexturesLesson'
 import MaterialsLesson from './scenes/MaterialsLesson'
+import ThreeDTextLesson from './scenes/ThreeDTextLesson'
 
 function App() {
 
   return (
     <>
-    <MaterialsLesson/>
+    <ThreeDTextLesson/>
     </>
   )
 }
