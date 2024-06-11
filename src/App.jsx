@@ -6,12 +6,13 @@ import CamerasLesson from './scenes/CamerasLesson'
 import FullscreenAndResizing from './scenes/FullscreenAndResizing'
 import GeometriesLesson from './scenes/GeometriesLesson'
 import DebugUILesson from './scenes/DebugUILesson'
+import TexturesLesson from './scenes/TexturesLesson'
 
 function App() {
 
   return (
     <>
-    <DebugUILesson/>
+    <TexturesLesson/>
     </>
   )
 }
