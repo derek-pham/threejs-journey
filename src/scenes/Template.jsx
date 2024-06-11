@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import GUI from 'lil-gui';
+import { color } from 'three/examples/jsm/nodes/Nodes.js';
 
 const BasicCubeScene = () => {
     const canvasRef = useRef();
 
     useEffect(() => {
+        // GUI
+        const gui = new GUI()
+
         // Canvas
         const canvas = canvasRef.current;
 
@@ -21,6 +26,9 @@ const BasicCubeScene = () => {
         //Mesh Object
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
+        const meshDebug = {color: '#c863e3'}
+        gui.addColor(meshDebug, 'color').name("Colour")
+            .onChange(() => mesh.material.color.set(meshDebug.color))
 
         // Camera
         const sizes = { width: window.innerWidth, height: window.innerHeight}
