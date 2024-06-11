@@ -7,12 +7,13 @@ import FullscreenAndResizing from './scenes/FullscreenAndResizing'
 import GeometriesLesson from './scenes/GeometriesLesson'
 import DebugUILesson from './scenes/DebugUILesson'
 import TexturesLesson from './scenes/TexturesLesson'
+import MaterialsLesson from './scenes/MaterialsLesson'
 
 function App() {
 
   return (
     <>
-    <TexturesLesson/>
+    <MaterialsLesson/>
     </>
   )
 }

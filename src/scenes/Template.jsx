@@ -2,14 +2,29 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import GUI from 'lil-gui';
-import { color } from 'three/examples/jsm/nodes/Nodes.js';
 
 const BasicCubeScene = () => {
     const canvasRef = useRef();
+    let rotation = 0.003;
+    let rotationTrigger = true;
 
     useEffect(() => {
+        // Settings Objects for GUI
+        const settingsObj = {
+            toggleRotation: () => {
+                if (rotationTrigger) {
+                    rotationTrigger = false;
+                    rotation = 0.003;
+                } else {
+                    rotationTrigger = true;
+                    rotation = 0;
+                }
+            }
+        };
+
         // GUI
-        const gui = new GUI()
+        const gui = new GUI();
+        gui.add(settingsObj, 'toggleRotation').name('Toggle Rotation');
 
         // Canvas
         const canvas = canvasRef.current;
@@ -21,17 +36,17 @@ const BasicCubeScene = () => {
         const geometry = new THREE.BoxGeometry(1, 1, 1)
 
         // Material
-        const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+        const material = new THREE.MeshBasicMaterial({ color: 0xc863e3 })
 
         //Mesh Object
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
-        const meshDebug = {color: '#c863e3'}
+        const meshDebug = { color: '#c863e3' }
         gui.addColor(meshDebug, 'color').name("Colour")
             .onChange(() => mesh.material.color.set(meshDebug.color))
 
         // Camera
-        const sizes = { width: window.innerWidth, height: window.innerHeight}
+        const sizes = { width: window.innerWidth, height: window.innerHeight }
         const camera = new THREE.PerspectiveCamera(110, sizes.width / sizes.height)
         camera.position.set(0, 0, 2)
         scene.add(camera)
@@ -63,7 +78,7 @@ const BasicCubeScene = () => {
 
         // --------- Animate function ---------
         const animate = () => {
-            mesh.rotation.y += 0.003
+            mesh.rotation.y += rotation
 
             renderer.render(scene, camera)
             window.requestAnimationFrame(animate)

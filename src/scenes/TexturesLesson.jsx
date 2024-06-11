@@ -2,17 +2,6 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import GUI from 'lil-gui';
-import imageColorSource from '../textures/door/color.jpg'
-import imageAlphaSource from '../textures/door/alpha.jpg'
-import imageHeightSource from '../textures/door/height.jpg'
-import imageMetalnessSource from '../textures/door/metalness.jpg'
-import imageNormalSource from '../textures/door/normal.jpg'
-import imageRoughnessSource from '../textures/door/roughness.jpg'
-import imageAmbOccSource from '../textures/door/ambientOcclusion.jpg'
-import checkerboard1024 from '../textures/checkerboard-1024x1024.png'
-import checkerboard8 from '../textures/checkerboard-8x8.png'
-import minecraft from '../textures/minecraft.png'
-
 const TexturesLesson = () => {
     const canvasRef = useRef();
 
