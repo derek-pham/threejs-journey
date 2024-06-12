@@ -9,12 +9,13 @@ import DebugUILesson from './scenes/DebugUILesson'
 import TexturesLesson from './scenes/TexturesLesson'
 import MaterialsLesson from './scenes/MaterialsLesson'
 import ThreeDTextLesson from './scenes/ThreeDTextLesson'
+import LightsLesson from './scenes/LightsLesson'
 
 function App() {
 
   return (
     <>
-    <ThreeDTextLesson/>
+    <LightsLesson/>
     </>
   )
 }
