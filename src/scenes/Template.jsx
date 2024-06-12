@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import GUI from 'lil-gui';
 
-const BasicCubeScene = () => {
+const Template = () => {
     const canvasRef = useRef();
     let rotation = 0.003;
     let rotationTrigger = false;
@@ -36,7 +36,7 @@ const BasicCubeScene = () => {
         const geometry = new THREE.BoxGeometry(1, 1, 1)
 
         // Material
-        const material = new THREE.MeshBasicMaterial({ color: 0xc863e3 })
+        const material = new THREE.MeshStandardMaterial({ color: 0xc863e3 })
 
         //Mesh Object
         const mesh = new THREE.Mesh(geometry, material)
@@ -45,11 +45,27 @@ const BasicCubeScene = () => {
         gui.addColor(meshDebug, 'color').name("Colour")
             .onChange(() => mesh.material.color.set(meshDebug.color))
 
+        const plane = new THREE.Mesh(new THREE.PlaneGeometry(10, 10, 10), material)
+        plane.rotation.x = Math.PI / 2
+        plane.rotation.y = Math.PI
+        plane.position.y = -1
+        scene.add(plane)
+
         // Camera
         const sizes = { width: window.innerWidth, height: window.innerHeight }
         const camera = new THREE.PerspectiveCamera(110, sizes.width / sizes.height)
         camera.position.set(0, 0, 2)
         scene.add(camera)
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0x00ffcf, 1)
+        gui.add(ambientLight, 'intensity').min(-5).max(1).step(0.001).name('ambientLight')
+        scene.add(ambientLight)
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+        gui.add(directionalLight, 'intensity').min(0).max(50).step(0.1).name('directionalLight')
+        scene.add(directionalLight)
+
 
         // Controls
         const controls = new OrbitControls(camera, canvas)
@@ -79,6 +95,7 @@ const BasicCubeScene = () => {
         // --------- Animate function ---------
         const animate = () => {
             mesh.rotation.y += rotation
+            mesh.rotation.x -= rotation / 2
 
             renderer.render(scene, camera)
             window.requestAnimationFrame(animate)
@@ -99,4 +116,4 @@ const BasicCubeScene = () => {
     )
 }
 
-export default BasicCubeScene
+export default Template
