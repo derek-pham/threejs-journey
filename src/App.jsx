@@ -15,12 +15,32 @@ import ShadowsLesson from './scenes/ShadowsLesson'
 import HauntedHouseScene from './scenes/HauntedHouseLesson'
 import ParticlesLesson from './scenes/ParticlesLesson'
 import GalaxyGeneratorLesson from './scenes/GalaxyGeneratorLesson'
+import ScrollAnimLesson from './scenes/ScrollAnimLesson'
 
 function App() {
 
   return (
     <>
-      <GalaxyGeneratorLesson />
+      <ScrollAnimLesson />
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>      
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>      
+      <h1>HELLO</h1>
     </>
   )
 }
