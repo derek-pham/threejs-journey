@@ -13,12 +13,12 @@ import ThreeDTextLesson from './scenes/ThreeDTextLesson'
 import LightsLesson from './scenes/LightsLesson'
 import ShadowsLesson from './scenes/ShadowsLesson'
 import HauntedHouseScene from './scenes/HauntedHouseLesson'
+import ParticlesLesson from './scenes/ParticlesLesson'
 
 function App() {
 
   return (
     <>
-      <HauntedHouseScene />
     </>
   )
 }
