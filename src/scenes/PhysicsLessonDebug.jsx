@@ -8,6 +8,7 @@ const PhysicsLessonDebug = () => {
     const canvasRef = useRef();
     let rotation = 0.003;
     let rotationTrigger = false;
+    let animateId;
 
     useEffect(() => {
         // Settings Objects for GUI
@@ -55,21 +56,11 @@ const PhysicsLessonDebug = () => {
         }
 
         //Mesh Object
-        const mesh = new THREE.Mesh(geometry, material)
-        // scene.add(mesh)
-        const meshDebug = { color: '#c863e3' }
-        gui.addColor(meshDebug, 'color').name("Colour")
-            .onChange(() => mesh.material.color.set(meshDebug.color))
-        mesh.position.y = 1.3
-        mesh.castShadow = true
-
-
         const plane = new THREE.Mesh(new THREE.PlaneGeometry(10, 10, 10), material)
         plane.receiveShadow = true
         plane.rotation.x = Math.PI / 2
         plane.rotation.y = Math.PI
         plane.position.y = -1
-
         scene.add(plane)
 
         // Camera
@@ -120,16 +111,6 @@ const PhysicsLessonDebug = () => {
         world.addContactMaterial(defaultContactMaterial)
         world.defaultContactMaterial = defaultContactMaterial
 
-        // Create sphere
-        // const sphereShape = new CANNON.Sphere(0.7)
-        // const sphereBody = new CANNON.Body({
-        //     mass: 1,
-        //     position: new CANNON.Vec3(0, 3, 0),
-        //     shape: sphereShape
-        // })        
-        // sphereBody.applyLocalForce(new CANNON.Vec3(100,0,0),new CANNON.Vec3(0,0,0),)
-        // world.addBody(sphereBody)
-
         const floorShape = new CANNON.Plane()
         const floorBody = new CANNON.Body({
             mass: 0, // 0 by default
@@ -148,7 +129,6 @@ const PhysicsLessonDebug = () => {
         renderer.setSize(sizes.width, sizes.height) // Set size of renderer
         renderer.shadowMap.enabled = true
         renderer.shadowMap.type = THREE.PCFSoftShadowMap
-        // renderer.render(scene, camera) // Initiate rendering the scene
 
         const objectsTemplate = []
 
@@ -191,8 +171,6 @@ const PhysicsLessonDebug = () => {
 
             renderer.shadowMap.needsUpdate = true;
         }
-        // createSphere(0.5, { x: 0, y: 3, z: 0 })
-        // createSphere(0.5, { x: 2, y: 3, z: 0 })
         createSphere(0.5, { x: 2, y: 3, z: -3 })
 
         // Box
@@ -234,7 +212,6 @@ const PhysicsLessonDebug = () => {
             renderer.shadowMap.needsUpdate = true;
         }
 
-
         const debugObject = {}
 
         debugObject.createSphere = () => {
@@ -259,7 +236,6 @@ const PhysicsLessonDebug = () => {
             objectsTemplate.splice(0,objectsTemplate.length)
         }
 
-
         gui.add(debugObject, 'reset')
 
         // Clock
@@ -267,32 +243,29 @@ const PhysicsLessonDebug = () => {
         let oldElapsedTime = 0;
 
         // Resize
-        window.addEventListener('resize', () => {
+        const handleResize = () => {
             // Update sizes
-            sizes.width = window.innerWidth
-            sizes.height = window.innerHeight
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
 
-            //Update Camera
-            camera.aspect = sizes.width / sizes.height
-            camera.updateProjectionMatrix()
+            // Update Camera
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
 
-            //Update Renderer
-            renderer.setSize(sizes.width, sizes.height)
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-        })
+            // Update Renderer
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        };
+        window.addEventListener('resize', handleResize);
 
         // --------- Animate function ---------
         const animate = () => {
-            // mesh.rotation.y += rotation
-            // mesh.rotation.x -= rotation / 2
             // Update physics world
             const elapsedTime = clock.getElapsedTime()
             const deltaTime = elapsedTime - oldElapsedTime
             oldElapsedTime = elapsedTime
-            // sphereBody.applyForce(new CANNON.Vec3(-0.05,0,0),sphereBody.position)
 
             world.step(1 / 60, deltaTime, 3)
-            // mesh.position.copy(sphereBody.position)
             for (const object of objectsTemplate) {
                 object.mesh.position.copy(object.body.position);
                 object.mesh.quaternion.copy(object.body.quaternion);
@@ -300,14 +273,21 @@ const PhysicsLessonDebug = () => {
             renderer.shadowMap.needsUpdate = true;
 
             renderer.render(scene, camera)
-            window.requestAnimationFrame(animate)
+            animateId = window.requestAnimationFrame(animate);
         }
         animate()
 
         // --------- Clean up function ---------
         return () => {
+            window.cancelAnimationFrame(animateId);
             renderer.dispose();
-            gui.destroy()
+            gui.destroy();
+            window.removeEventListener('resize', handleResize);
+            for (const object of objectsTemplate) {
+                object.body.removeEventListener('collide', playHitSound);
+                world.removeBody(object.body);
+                scene.remove(object.mesh);
+            }
         };
 
     }, [])

@@ -7,6 +7,7 @@ const Template = () => {
     const canvasRef = useRef();
     let rotation = 0.003;
     let rotationTrigger = false;
+    let animateId;
 
     useEffect(() => {
         // Settings Objects for GUI
@@ -81,19 +82,20 @@ const Template = () => {
         const clock = new THREE.Clock()
 
         // Resize
-        window.addEventListener('resize', () => {
+        const handleResize = () => {
             // Update sizes
-            sizes.width = window.innerWidth
-            sizes.height = window.innerHeight
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
 
-            //Update Camera
-            camera.aspect = sizes.width / sizes.height
-            camera.updateProjectionMatrix()
+            // Update Camera
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
 
-            //Update Renderer
-            renderer.setSize(sizes.width, sizes.height)
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-        })
+            // Update Renderer
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        };
+        window.addEventListener('resize', handleResize);
 
         // --------- Animate function ---------
         const animate = () => {
@@ -101,13 +103,16 @@ const Template = () => {
             mesh.rotation.x -= rotation / 2
 
             renderer.render(scene, camera)
-            window.requestAnimationFrame(animate)
+            animateId = window.requestAnimationFrame(animate);
         }
         animate()
 
         // --------- Clean up function ---------
         return () => {
+            window.cancelAnimationFrame(animateId);
             renderer.dispose();
+            gui.destroy();
+            window.removeEventListener('resize', handleResize);
         };
 
     }, [])
