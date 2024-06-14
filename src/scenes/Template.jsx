@@ -77,6 +77,9 @@ const Template = () => {
         renderer.setSize(sizes.width, sizes.height) // Set size of renderer
         renderer.render(scene, camera) // Initiate rendering the scene
 
+        // Clock
+        const clock = new THREE.Clock()
+
         // Resize
         window.addEventListener('resize', () => {
             // Update sizes

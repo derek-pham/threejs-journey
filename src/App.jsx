@@ -16,31 +16,14 @@ import HauntedHouseScene from './scenes/HauntedHouseLesson'
 import ParticlesLesson from './scenes/ParticlesLesson'
 import GalaxyGeneratorLesson from './scenes/GalaxyGeneratorLesson'
 import ScrollAnimLesson from './scenes/ScrollAnimLesson'
+import PhysicsLesson from './scenes/PhysicsLesson'
+import PhysicsLessonDebug from './scenes/PhysicsLessonDebug'
 
 function App() {
 
   return (
     <>
-      <ScrollAnimLesson />
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>      
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>      
-      <h1>HELLO</h1>
+      <PhysicsLessonDebug />
     </>
   )
 }
