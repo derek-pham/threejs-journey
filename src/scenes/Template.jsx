@@ -41,14 +41,15 @@ const Template = () => {
 
         //Mesh Object
         const mesh = new THREE.Mesh(geometry, material)
+        mesh.castShadow = true
         scene.add(mesh)
         const meshDebug = { color: '#c863e3' }
         gui.addColor(meshDebug, 'color').name("Colour")
             .onChange(() => mesh.material.color.set(meshDebug.color))
 
         const plane = new THREE.Mesh(new THREE.PlaneGeometry(10, 10, 10), material)
-        plane.rotation.x = Math.PI / 2
-        plane.rotation.y = Math.PI
+        plane.receiveShadow = true
+        plane.rotation.x = -Math.PI / 2
         plane.position.y = -1
         scene.add(plane)
 
@@ -64,6 +65,7 @@ const Template = () => {
         scene.add(ambientLight)
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+        directionalLight.castShadow = true
         gui.add(directionalLight, 'intensity').min(0).max(50).step(0.1).name('directionalLight')
         scene.add(directionalLight)
 
@@ -76,10 +78,11 @@ const Template = () => {
             canvas: canvas
         })
         renderer.setSize(sizes.width, sizes.height) // Set size of renderer
-        renderer.render(scene, camera) // Initiate rendering the scene
+        renderer.shadowMap.enabled = true
 
         // Clock
         const clock = new THREE.Clock()
+        let oldElapsedTime = 0;
 
         // Resize
         const handleResize = () => {
@@ -99,6 +102,9 @@ const Template = () => {
 
         // --------- Animate function ---------
         const animate = () => {
+            const elapsedTime = clock.getElapsedTime()
+            const deltaTime = elapsedTime - oldElapsedTime
+            oldElapsedTime = elapsedTime
             mesh.rotation.y += rotation
             mesh.rotation.x -= rotation / 2
 
@@ -116,6 +122,7 @@ const Template = () => {
         };
 
     }, [])
+
 
     return (
         <>

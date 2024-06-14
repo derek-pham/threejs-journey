@@ -18,12 +18,13 @@ import GalaxyGeneratorLesson from './scenes/GalaxyGeneratorLesson'
 import ScrollAnimLesson from './scenes/ScrollAnimLesson'
 import PhysicsLesson from './scenes/PhysicsLesson'
 import PhysicsLessonDebug from './scenes/PhysicsLessonDebug'
+import ImportedModelsLesson from './scenes/ImportedModelsLesson'
 
 function App() {
 
   return (
     <>
-      <PhysicsLessonDebug />
+      <ImportedModelsLesson />
     </>
   )
 }
