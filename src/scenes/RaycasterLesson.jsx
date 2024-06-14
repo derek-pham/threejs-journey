@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 import { GLTFLoader, OrbitControls } from 'three/examples/jsm/Addons.js';
 import GUI from 'lil-gui';
+import gsap from 'gsap';
 
 const RaycasterLesson = () => {
     const canvasRef = useRef();
@@ -215,9 +216,20 @@ const RaycasterLesson = () => {
                 // console.log(modelIntersects)
                 if (modelIntersects.length) {
                     // console.log('DGSDG')
-                    duckModel.scale.set(1.2, 1.2, 1.2)
+                    gsap.to(duckModel.scale, {
+                        x: 1.8,
+                        y: 1.8,
+                        z: 1.8,
+                    })
+                    // duckModel.scale.set(1.2, 1.2, 1.2)
                 } else {
-                    duckModel.scale.set(1, 1, 1)
+                    gsap.to(duckModel.scale, {
+                        x: 1,
+                        y: 1,
+                        z: 1,
+                        duration: 20
+                    })
+                    // duckModel.scale.set(1, 1, 1)
                 }
             }
 
