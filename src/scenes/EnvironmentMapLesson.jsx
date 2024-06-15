@@ -136,7 +136,7 @@ const EnvironmentMapLesson = () => {
         )
         holyDonut.position.y = 3.5
         scene.add(holyDonut)
-        // holyDonut.layers.enable(1)
+        holyDonut.layers.enable(1)
 
         //Cube Render target
         const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256, {
@@ -148,7 +148,7 @@ const EnvironmentMapLesson = () => {
         scene.background = cubeRenderTarget.texture
 
         const cubeCamera = new THREE.CubeCamera(0.1, 100, cubeRenderTarget)
-        // cubeCamera.layers.set(1)
+        cubeCamera.layers.set(1)
 
         // LOADING MODELS
         gltfLoader.load('/models/FlightHelmet/glTF/FlightHelmet.gltf', (gltf) => {
@@ -202,7 +202,7 @@ const EnvironmentMapLesson = () => {
         };
         window.addEventListener('resize', handleResize);
         if (holyDonut) {
-            // cubeCamera.update(renderer, scene)
+            cubeCamera.update(renderer, scene)
         }
         // --------- Animate function ---------
         const animate = () => {
