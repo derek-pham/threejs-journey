@@ -21,12 +21,13 @@ import PhysicsLessonDebug from './scenes/PhysicsLessonDebug'
 import ImportedModelsLesson from './scenes/ImportedModelsLesson'
 import RaycasterLesson from './scenes/RaycasterLesson'
 import CustomModelLesson from './scenes/CustomModelLesson'
+import EnvironmentMapLesson from './scenes/EnvironmentMapLesson'
 
 function App() {
 
   return (
     <>
-      <CustomModelLesson />
+      <EnvironmentMapLesson />
     </>
   )
 }
