@@ -22,12 +22,13 @@ import ImportedModelsLesson from './scenes/ImportedModelsLesson'
 import RaycasterLesson from './scenes/RaycasterLesson'
 import CustomModelLesson from './scenes/CustomModelLesson'
 import EnvironmentMapLesson from './scenes/EnvironmentMapLesson'
+import RealisticRender from './scenes/RealisticRender'
 
 function App() {
 
   return (
     <>
-      <EnvironmentMapLesson />
+      <RealisticRender />
     </>
   )
 }
