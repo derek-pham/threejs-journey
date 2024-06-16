@@ -23,12 +23,13 @@ import RaycasterLesson from './scenes/RaycasterLesson'
 import CustomModelLesson from './scenes/CustomModelLesson'
 import EnvironmentMapLesson from './scenes/EnvironmentMapLesson'
 import RealisticRender from './scenes/RealisticRender'
+import ShadersLesson from './scenes/ShadersLesson'
 
 function App() {
 
   return (
     <>
-      <RealisticRender />
+      <ShadersLesson />
     </>
   )
 }
