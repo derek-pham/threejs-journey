@@ -24,12 +24,13 @@ import CustomModelLesson from './scenes/CustomModelLesson'
 import EnvironmentMapLesson from './scenes/EnvironmentMapLesson'
 import RealisticRender from './scenes/RealisticRender'
 import ShadersLesson from './scenes/ShadersLesson'
+import ShaderPatternsLesson from './scenes/ShaderPatternsLesson'
 
 function App() {
 
   return (
     <>
-      <ShadersLesson />
+      <ShaderPatternsLesson />
     </>
   )
 }

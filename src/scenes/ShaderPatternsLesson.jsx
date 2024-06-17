@@ -1,0 +1,181 @@
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import GUI from 'lil-gui';
+import textVertexShaders from '../shaders/shaderpatterns/vertex.glsl'
+import textFragmentShaders from '../shaders/shaderpatterns/fragment.glsl'
+
+const ShaderPatternsLesson = () => {
+    const canvasRef = useRef();
+    let rotation = 0.003;
+    let rotationTrigger = false;
+    let animateId;
+
+    useEffect(() => {
+        // Settings Objects for GUI
+        const settingsObj = {
+            toggleRotation: () => {
+                if (rotationTrigger) {
+                    rotationTrigger = false;
+                    rotation = 0.003;
+                } else {
+                    rotationTrigger = true;
+                    rotation = 0;
+                }
+            }
+        };
+
+
+        // GUI
+        const gui = new GUI();
+        gui.add(settingsObj, 'toggleRotation').name('Toggle Rotation');
+
+        // Canvas
+        const canvas = canvasRef.current;
+
+        // Check WebGL 2.0 Support
+        const gl = canvas.getContext('webgl2');
+        if (!gl) {
+            console.error('WebGL 2.0 not supported');
+            return;
+        }
+        console.log('WebGL 2.0 context created');
+
+        // Scene
+        const scene = new THREE.Scene();
+
+        // Geometry
+        const geometry = new THREE.BoxGeometry(1, 1, 1)
+        const planeGeometry = new THREE.PlaneGeometry(10, 10, 100, 100)
+
+        // Textures
+        const textureLoader = new THREE.TextureLoader()
+        const flagTexture = textureLoader.load('/flag-french.jpg')
+
+        //Random Array
+        const count = planeGeometry.attributes.position.count
+        const randoms = new Float32Array(count)
+
+        for (let i = 0; i < count; i++) {
+            randoms[i] = Math.random()
+        }
+
+        planeGeometry.setAttribute('aRandom', new THREE.BufferAttribute(randoms, 1))
+
+        // Material
+        const material = new THREE.MeshStandardMaterial({ color: 0xc863e3 })
+        const rawShaderMaterial = new THREE.RawShaderMaterial({
+            glslVersion: THREE.GLSL3,
+            vertexShader: textVertexShaders,
+            fragmentShader: textFragmentShaders,
+            side: THREE.DoubleSide,
+            // wireframe: true
+            uniforms: {
+                uFrequency: { value: new THREE.Vector2(10, 5) },
+                uTime: { value: 0 },
+                uColor: { value: new THREE.Color('orange') },
+                uTexture: { value: flagTexture }
+            }
+        })
+        gui.add(rawShaderMaterial.uniforms.uFrequency.value, 'x').min(0).max(20).step(0.01).name('frequencyX')
+        gui.add(rawShaderMaterial.uniforms.uFrequency.value, 'y').min(0).max(20).step(0.01).name('frequencyY')
+
+
+
+        //Mesh Object
+        const mesh = new THREE.Mesh(geometry, material)
+        mesh.castShadow = true
+        // scene.add(mesh)
+        const meshDebug = { color: '#c863e3' }
+        gui.addColor(meshDebug, 'color').name("Colour")
+            .onChange(() => mesh.material.color.set(meshDebug.color))
+
+        const plane = new THREE.Mesh(planeGeometry, rawShaderMaterial)
+
+        plane.receiveShadow = true
+        // plane.rotation.x = -Math.PI / 2
+        // plane.position.y = -1
+        scene.add(plane)
+
+        // Camera
+        const sizes = { width: window.innerWidth, height: window.innerHeight }
+        const camera = new THREE.PerspectiveCamera(110, sizes.width / sizes.height)
+        camera.position.set(0.1, 0, 5)
+        scene.add(camera)
+
+        // Lights
+        const ambientLight = new THREE.AmbientLight(0x00ffcf, 1)
+        gui.add(ambientLight, 'intensity').min(-5).max(1).step(0.001).name('ambientLight')
+        scene.add(ambientLight)
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+        directionalLight.castShadow = true
+        gui.add(directionalLight, 'intensity').min(0).max(50).step(0.1).name('directionalLight')
+        scene.add(directionalLight)
+
+
+        // Controls
+        const controls = new OrbitControls(camera, canvas)
+
+        // Renderer 
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            context: gl // Use the WebGL 2.0 context created earlier
+        })
+        renderer.setSize(sizes.width, sizes.height) // Set size of renderer
+        renderer.shadowMap.enabled = true
+
+        // Clock
+        const clock = new THREE.Clock()
+        let oldElapsedTime = 0;
+
+        // Resize
+        const handleResize = () => {
+            // Update sizes
+            sizes.width = window.innerWidth;
+            sizes.height = window.innerHeight;
+
+            // Update Camera
+            camera.aspect = sizes.width / sizes.height;
+            camera.updateProjectionMatrix();
+
+            // Update Renderer
+            renderer.setSize(sizes.width, sizes.height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        };
+        window.addEventListener('resize', handleResize);
+
+        // --------- Animate function ---------
+        const animate = () => {
+            const elapsedTime = clock.getElapsedTime()
+            const deltaTime = elapsedTime - oldElapsedTime
+            oldElapsedTime = elapsedTime
+            mesh.rotation.y += rotation
+            mesh.rotation.x -= rotation / 2
+
+            rawShaderMaterial.uniforms.uTime.value = elapsedTime
+
+            renderer.render(scene, camera)
+            animateId = window.requestAnimationFrame(animate);
+        }
+        animate()
+
+        // --------- Clean up function ---------
+        return () => {
+            window.cancelAnimationFrame(animateId);
+            renderer.dispose();
+            gui.destroy();
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, [])
+
+
+    return (
+        <>
+            <canvas ref={canvasRef} style={{ position: 'fixed', top: 0, left: 0 }} />
+        </>
+    )
+}
+
+export default ShaderPatternsLesson
