@@ -25,12 +25,13 @@ import EnvironmentMapLesson from './scenes/EnvironmentMapLesson'
 import RealisticRender from './scenes/RealisticRender'
 import ShadersLesson from './scenes/ShadersLesson'
 import ShaderPatternsLesson from './scenes/ShaderPatternsLesson'
+import RagingSeaLesson from './scenes/RagingSeaLesson'
 
 function App() {
 
   return (
     <>
-      <ShaderPatternsLesson />
+      <RagingSeaLesson />
     </>
   )
 }
