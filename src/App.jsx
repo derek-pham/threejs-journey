@@ -27,12 +27,13 @@ import ShadersLesson from './scenes/ShadersLesson'
 import ShaderPatternsLesson from './scenes/ShaderPatternsLesson'
 import RagingSeaLesson from './scenes/RagingSeaLesson'
 import AnimatedGalaxyLesson from './scenes/AnimatedGalaxyLesson'
+import ModifiedMaterialsLesson from './scenes/ModifiedMaterialsLesson'
 
 function App() {
 
   return (
     <>
-      <AnimatedGalaxyLesson />
+      <ModifiedMaterialsLesson />
     </>
   )
 }
