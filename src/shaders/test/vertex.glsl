@@ -1,12 +1,12 @@
 // Retrieving the uniforms which already exist
 
-// uniform mat4 projectionMatrix;
+uniform mat4 projectionMatrix;
 
 // Apply transformations relative to the camera
-// uniform mat4 viewMatrix;
+uniform mat4 viewMatrix;
 
 // Apply transformations relative to the Mesh
-// uniform mat4 modelMatrix;
+uniform mat4 modelMatrix;
 
 // Retrieving the uFrequency uniform which was created
 uniform vec2 uFrequency;

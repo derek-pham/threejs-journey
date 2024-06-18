@@ -28,12 +28,13 @@ import ShaderPatternsLesson from './scenes/ShaderPatternsLesson'
 import RagingSeaLesson from './scenes/RagingSeaLesson'
 import AnimatedGalaxyLesson from './scenes/AnimatedGalaxyLesson'
 import ModifiedMaterialsLesson from './scenes/ModifiedMaterialsLesson'
+import CoffeeSmokeLesson from './scenes/CoffeeSmokeLesson'
 
 function App() {
 
   return (
     <>
-      <ModifiedMaterialsLesson />
+      <CoffeeSmokeLesson />
     </>
   )
 }
