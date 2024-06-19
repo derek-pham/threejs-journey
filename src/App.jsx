@@ -29,12 +29,13 @@ import RagingSeaLesson from './scenes/RagingSeaLesson'
 import AnimatedGalaxyLesson from './scenes/AnimatedGalaxyLesson'
 import ModifiedMaterialsLesson from './scenes/ModifiedMaterialsLesson'
 import CoffeeSmokeLesson from './scenes/CoffeeSmokeLesson'
+import HologramLesson from './scenes/HologramLesson'
 
 function App() {
 
   return (
     <>
-      <CoffeeSmokeLesson />
+      <HologramLesson />
     </>
   )
 }
