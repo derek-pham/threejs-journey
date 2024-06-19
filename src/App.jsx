@@ -30,12 +30,13 @@ import AnimatedGalaxyLesson from './scenes/AnimatedGalaxyLesson'
 import ModifiedMaterialsLesson from './scenes/ModifiedMaterialsLesson'
 import CoffeeSmokeLesson from './scenes/CoffeeSmokeLesson'
 import HologramLesson from './scenes/HologramLesson'
+import FireworksLesson from './scenes/FireworksLesson'
 
 function App() {
 
   return (
     <>
-      <HologramLesson />
+      <FireworksLesson />
     </>
   )
 }
