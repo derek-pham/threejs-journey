@@ -6,7 +6,6 @@ varying vec3 vNormal;
 
 #include ./includes/random2D.glsl;
 
-
 void main() {
     // Position
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);

@@ -31,12 +31,13 @@ import ModifiedMaterialsLesson from './scenes/ModifiedMaterialsLesson'
 import CoffeeSmokeLesson from './scenes/CoffeeSmokeLesson'
 import HologramLesson from './scenes/HologramLesson'
 import FireworksLesson from './scenes/FireworksLesson'
+import LightsShadingLesson from './scenes/LightsShadingLesson'
 
 function App() {
 
   return (
     <>
-      <FireworksLesson />
+      <LightsShadingLesson />
     </>
   )
 }
