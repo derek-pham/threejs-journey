@@ -32,12 +32,13 @@ import CoffeeSmokeLesson from './scenes/CoffeeSmokeLesson'
 import HologramLesson from './scenes/HologramLesson'
 import FireworksLesson from './scenes/FireworksLesson'
 import LightsShadingLesson from './scenes/LightsShadingLesson'
+import RagingSeaShadingLesson from './scenes/RagingSeaShadingLesson'
 
 function App() {
 
   return (
     <>
-      <LightsShadingLesson />
+      <RagingSeaShadingLesson />
     </>
   )
 }
