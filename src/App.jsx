@@ -34,12 +34,13 @@ import FireworksLesson from './scenes/FireworksLesson'
 import LightsShadingLesson from './scenes/LightsShadingLesson'
 import RagingSeaShadingLesson from './scenes/RagingSeaShadingLesson'
 import HalftoneShadingLesson from './scenes/HalftoneShadingLesson'
+import EarthLesson from './scenes/EarthLesson'
 
 function App() {
 
   return (
     <>
-      <HalftoneShadingLesson />
+      <EarthLesson />
     </>
   )
 }
