@@ -33,12 +33,13 @@ import HologramLesson from './scenes/HologramLesson'
 import FireworksLesson from './scenes/FireworksLesson'
 import LightsShadingLesson from './scenes/LightsShadingLesson'
 import RagingSeaShadingLesson from './scenes/RagingSeaShadingLesson'
+import HalftoneShadingLesson from './scenes/HalftoneShadingLesson'
 
 function App() {
 
   return (
     <>
-      <RagingSeaShadingLesson />
+      <HalftoneShadingLesson />
     </>
   )
 }
