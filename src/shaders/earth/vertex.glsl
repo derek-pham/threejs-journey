@@ -15,7 +15,7 @@ void main() {
     // Model normal
     vec4 modelNormal = modelMatrix * vec4(normal, 0.0);
 
-    // Convert Varyings   
+    // Convert Varyings  
     vUv = uv;
     vNormal = modelNormal.xyz;
     vPosition = modelPosition.xyz;

@@ -35,12 +35,13 @@ import LightsShadingLesson from './scenes/LightsShadingLesson'
 import RagingSeaShadingLesson from './scenes/RagingSeaShadingLesson'
 import HalftoneShadingLesson from './scenes/HalftoneShadingLesson'
 import EarthLesson from './scenes/EarthLesson'
+import ParticlesCursorAnimationLesson from './scenes/ParticlesCursorAnimationLesson'
 
 function App() {
 
   return (
     <>
-      <EarthLesson />
+      <ParticlesCursorAnimationLesson />
     </>
   )
 }
