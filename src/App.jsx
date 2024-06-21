@@ -36,12 +36,13 @@ import RagingSeaShadingLesson from './scenes/RagingSeaShadingLesson'
 import HalftoneShadingLesson from './scenes/HalftoneShadingLesson'
 import EarthLesson from './scenes/EarthLesson'
 import ParticlesCursorAnimationLesson from './scenes/ParticlesCursorAnimationLesson'
+import ParticlesMorphingLesson from './scenes/ParticlesMorphingLesson'
 
 function App() {
 
   return (
     <>
-      <ParticlesCursorAnimationLesson />
+      <ParticlesMorphingLesson />
     </>
   )
 }
