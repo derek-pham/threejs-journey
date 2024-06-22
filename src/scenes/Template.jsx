@@ -22,6 +22,11 @@ const Template = () => {
                 }
             }
         };
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            pixelRatio: Math.min(window.devicePixelRatio, 2)
+        }
 
         // GUI
         const gui = new GUI();
@@ -54,7 +59,6 @@ const Template = () => {
         scene.add(plane)
 
         // Camera
-        const sizes = { width: window.innerWidth, height: window.innerHeight }
         const camera = new THREE.PerspectiveCamera(110, sizes.width / sizes.height)
         camera.position.set(0, 0, 2)
         scene.add(camera)

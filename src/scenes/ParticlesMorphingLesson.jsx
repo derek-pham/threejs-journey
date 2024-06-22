@@ -115,7 +115,7 @@ const ParticlesMorphingLesson = () => {
 
             })
 
-            //Mesh Object
+            // Mesh Object
             const sphere = new THREE.Points(particles.geometry, particles.material)
             scene.add(sphere)
 

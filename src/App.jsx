@@ -37,12 +37,13 @@ import HalftoneShadingLesson from './scenes/HalftoneShadingLesson'
 import EarthLesson from './scenes/EarthLesson'
 import ParticlesCursorAnimationLesson from './scenes/ParticlesCursorAnimationLesson'
 import ParticlesMorphingLesson from './scenes/ParticlesMorphingLesson'
+import GPGPUFlowFieldLesson from './scenes/GPGPUFlowFieldLesson'
 
 function App() {
 
   return (
     <>
-      <ParticlesMorphingLesson />
+      <GPGPUFlowFieldLesson />
     </>
   )
 }
