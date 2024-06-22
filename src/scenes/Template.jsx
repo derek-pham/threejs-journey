@@ -76,6 +76,7 @@ const Template = () => {
 
         // Controls
         const controls = new OrbitControls(camera, canvas)
+        controls.enableDamping = true
 
         // Renderer 
         const renderer = new THREE.WebGLRenderer({
@@ -112,6 +113,7 @@ const Template = () => {
             mesh.rotation.y += rotation
             mesh.rotation.x -= rotation / 2
 
+            controls.update()
             renderer.render(scene, camera)
             animateId = window.requestAnimationFrame(animate);
         }

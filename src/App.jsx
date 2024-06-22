@@ -38,12 +38,13 @@ import EarthLesson from './scenes/EarthLesson'
 import ParticlesCursorAnimationLesson from './scenes/ParticlesCursorAnimationLesson'
 import ParticlesMorphingLesson from './scenes/ParticlesMorphingLesson'
 import GPGPUFlowFieldLesson from './scenes/GPGPUFlowFieldLesson'
+import WobblySphere from './scenes/WobblySphere'
 
 function App() {
 
   return (
     <>
-      <GPGPUFlowFieldLesson />
+      <WobblySphere />
     </>
   )
 }
