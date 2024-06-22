@@ -39,12 +39,13 @@ import ParticlesCursorAnimationLesson from './scenes/ParticlesCursorAnimationLes
 import ParticlesMorphingLesson from './scenes/ParticlesMorphingLesson'
 import GPGPUFlowFieldLesson from './scenes/GPGPUFlowFieldLesson'
 import WobblySphere from './scenes/WobblySphere'
+import SlicedModelLesson from './scenes/SlicedModelLesson'
 
 function App() {
 
   return (
     <>
-      <WobblySphere />
+      <SlicedModelLesson />
     </>
   )
 }
