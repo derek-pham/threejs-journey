@@ -41,12 +41,13 @@ import GPGPUFlowFieldLesson from './scenes/GPGPUFlowFieldLesson'
 import WobblySphere from './scenes/WobblySphere'
 import SlicedModelLesson from './scenes/SlicedModelLesson'
 import ProceduralTerrain from './scenes/ProceduralTerrain'
+import PostProcessingLesson from './scenes/PostProcessingLesson'
 
 function App() {
 
   return (
     <>
-      <ProceduralTerrain />
+      <PostProcessingLesson />
     </>
   )
 }
