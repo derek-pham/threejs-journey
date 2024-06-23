@@ -40,12 +40,13 @@ import ParticlesMorphingLesson from './scenes/ParticlesMorphingLesson'
 import GPGPUFlowFieldLesson from './scenes/GPGPUFlowFieldLesson'
 import WobblySphere from './scenes/WobblySphere'
 import SlicedModelLesson from './scenes/SlicedModelLesson'
+import ProceduralTerrain from './scenes/ProceduralTerrain'
 
 function App() {
 
   return (
     <>
-      <SlicedModelLesson />
+      <ProceduralTerrain />
     </>
   )
 }
