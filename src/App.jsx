@@ -42,12 +42,13 @@ import WobblySphere from './scenes/WobblySphere'
 import SlicedModelLesson from './scenes/SlicedModelLesson'
 import ProceduralTerrain from './scenes/ProceduralTerrain'
 import PostProcessingLesson from './scenes/PostProcessingLesson'
+import PerformanceTipsLesson from './scenes/PerformanceTipsLesson'
 
 function App() {
 
   return (
     <>
-      <PostProcessingLesson />
+      <PerformanceTipsLesson />
     </>
   )
 }
