@@ -43,12 +43,13 @@ import SlicedModelLesson from './scenes/SlicedModelLesson'
 import ProceduralTerrain from './scenes/ProceduralTerrain'
 import PostProcessingLesson from './scenes/PostProcessingLesson'
 import PerformanceTipsLesson from './scenes/PerformanceTipsLesson'
+import IntroAndLoadLesson from './scenes/IntroAndLoadLesson'
 
 function App() {
 
   return (
     <>
-      <PerformanceTipsLesson />
+      <IntroAndLoadLesson />
     </>
   )
 }
