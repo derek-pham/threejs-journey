@@ -44,12 +44,13 @@ import ProceduralTerrain from './scenes/ProceduralTerrain'
 import PostProcessingLesson from './scenes/PostProcessingLesson'
 import PerformanceTipsLesson from './scenes/PerformanceTipsLesson'
 import IntroAndLoadLesson from './scenes/IntroAndLoadLesson'
+import MixHTMLWebGLLesson from './scenes/MixHTMLWebGLLesson'
 
 function App() {
 
   return (
     <>
-      <IntroAndLoadLesson />
+      <MixHTMLWebGLLesson />
     </>
   )
 }
