@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.107.1",
+    "@react-three/fiber": "^8.16.8",
+    "@types/three": "^0.165.0",
     "cannon-es": "^0.20.0",
     "gsap": "3.12",
     "lil-gui": "^0.19.2",

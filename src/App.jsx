@@ -46,12 +46,13 @@ import PerformanceTipsLesson from './scenes/PerformanceTipsLesson'
 import IntroAndLoadLesson from './scenes/IntroAndLoadLesson'
 import MixHTMLWebGLLesson from './scenes/MixHTMLWebGLLesson'
 import PortalSceneLesson from './scenes/PortalSceneLesson'
+import FirstR3FLesson from './scenes/R3F/FirstR3FLesson'
 
 function App() {
 
   return (
     <>
-      <PortalSceneLesson />
+      <FirstR3FLesson />
     </>
   )
 }
