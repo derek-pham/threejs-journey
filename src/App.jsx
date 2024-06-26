@@ -45,12 +45,13 @@ import PostProcessingLesson from './scenes/PostProcessingLesson'
 import PerformanceTipsLesson from './scenes/PerformanceTipsLesson'
 import IntroAndLoadLesson from './scenes/IntroAndLoadLesson'
 import MixHTMLWebGLLesson from './scenes/MixHTMLWebGLLesson'
+import PortalSceneLesson from './scenes/PortalSceneLesson'
 
 function App() {
 
   return (
     <>
-      <MixHTMLWebGLLesson />
+      <PortalSceneLesson />
     </>
   )
 }
