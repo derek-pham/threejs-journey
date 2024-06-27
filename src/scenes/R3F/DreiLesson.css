@@ -1,0 +1,12 @@
+/* Target first div inside */
+.label>div {
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    background: pink;
+    color: #242424;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 20px;
+    user-select: none;
+}

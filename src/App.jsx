@@ -47,12 +47,13 @@ import IntroAndLoadLesson from './scenes/IntroAndLoadLesson'
 import MixHTMLWebGLLesson from './scenes/MixHTMLWebGLLesson'
 import PortalSceneLesson from './scenes/PortalSceneLesson'
 import FirstR3FLesson from './scenes/R3F/FirstR3FLesson'
+import R3FApp from './scenes/R3F/R3FApp'
 
 function App() {
 
   return (
     <>
-      <FirstR3FLesson />
+      <R3FApp />
     </>
   )
 }
