@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { useFrame, extend, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
-import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import { OrbitControls } from '@react-three/drei';
 
 function Template() {
     const cubeRef = useRef()
@@ -16,7 +16,7 @@ function Template() {
     return (
         <>
             <gridHelper args={[10, 10]} />
-            <orbitControls args={[camera, gl.domElement]} />
+            <OrbitControls />
             <ambientLight intensity={0.5} />
             <pointLight position={[0, 5, -1]} color={'white'} intensity={30} />
             {/* <directionalLight position={[6, 5, -3]} intensity={3} /> */}

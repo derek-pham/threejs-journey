@@ -36,7 +36,7 @@ function DreiLesson() {
             </PivotControls>
             <mesh rotation-x={-Math.PI * 0.5}>
                 <planeGeometry args={[10, 10]} />
-                <MeshReflectorMaterial color={'greenyellow'} resolution={512} blur={[100,100]} mixBlur={0.3} mirror={0.5}/>
+                <MeshReflectorMaterial color={'greenyellow'} resolution={512} blur={[100, 100]} mixBlur={0.3} mirror={0.5} />
             </mesh>
             <Float speed={5} floatIntensity={10}>
                 <Text fontSize={1} color={"red"} position={[0, 2, 0]} maxWidth={2} textAlign='center'>
