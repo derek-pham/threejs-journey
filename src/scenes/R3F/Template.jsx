@@ -2,6 +2,7 @@
 import { useFrame, extend, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
+import { Perf } from 'r3f-perf';
 
 function Template() {
     const cubeRef = useRef()
@@ -10,11 +11,12 @@ function Template() {
     extend({ OrbitControls: OrbitControls })
 
     useFrame((state, delta) => {
-        cubeRef.current.rotation.y += delta
+        cubeRef.current.rotation.y += delta * 0.2
     })
 
     return (
         <>
+            <Perf position='top-left' />
             <gridHelper args={[10, 10]} />
             <OrbitControls />
             <ambientLight intensity={0.5} />
