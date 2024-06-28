@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 import FlightHelmet from './FlightHelmet';
 import Placeholder from './Placeholder';
 import Hamburger from './Hamburger';
-import Hamburger2 from './Hamburger2';
+// import Hamburger2 from './Hamburger2';
 import Fox from './Fox';
 
 function LoadModelsLesson() {

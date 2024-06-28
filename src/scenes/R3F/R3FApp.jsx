@@ -6,20 +6,15 @@ import DreiLesson from './DreiLesson';
 import DebugLesson from './DebugLesson';
 import EnvironmentStagingLesson from './EnvironmentStagingLesson';
 import LoadModelsLesson from './LoadModelsLesson';
-
-function onCreated(state) {
-    // state.gl.setClearColor('#483D8B',1)
-    state.scene.background = new THREE.Color("pink")
-
-}
+import Text3DLesson from './Text3DLesson';
 
 function R3FApp() {
 
     return (
         <div id="canvas-container" style={{ width: '100vw', height: '100vh' }}>
             <Leva collapsed />
-            <Canvas dpr={[1, 2]} camera={{ position: [5, 5, 5], fov: 75 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }} shadows>
-                <LoadModelsLesson />
+            <Canvas dpr={[1, 2]} camera={{ position: [0, 6, 8], fov: 75 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }} shadows>
+                <Text3DLesson />
             </Canvas>
         </div>
     );
