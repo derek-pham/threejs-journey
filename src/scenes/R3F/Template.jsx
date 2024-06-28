@@ -32,7 +32,7 @@ function Template() {
             </mesh>
             <mesh rotation-x={-Math.PI * 0.5}>
                 <planeGeometry args={[10, 10]} />
-                <meshStandardMaterial color={'red'} metalness={0.4} />
+                <meshStandardMaterial color={'yellowgreen'} />
             </mesh>
         </>
     );
