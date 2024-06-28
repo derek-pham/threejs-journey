@@ -18,12 +18,14 @@ export default function Hamburger() {
 
     const useGLTFModel = useGLTF('/models/Hamburger.gltf')
 
+    const eventHandler = (event) => {
+        console.log(event.object.name)
+        event.stopPropagation() // Prevent repetitions of console.log()
+    }
+
     return (
         <>
-            <Clone object={model.scene} scale={0.25} position={[1,0,0]} />
-            <Clone object={useGLTFModel.scene} scale={0.25} position={[0,1,0]} />
-            <Clone object={useGLTFModel.scene} scale={0.25} position={[0,0,1]} />
+            <primitive object={model.scene} scale={0.45} position={[1, 1, 0]} onClick={eventHandler} />
         </>
     );
 }
-

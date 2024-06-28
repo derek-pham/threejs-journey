@@ -8,6 +8,7 @@ import EnvironmentStagingLesson from './EnvironmentStagingLesson';
 import LoadModelsLesson from './LoadModelsLesson';
 import Text3DLesson from './Text3DLesson';
 import PortalLesson from './PortalLesson';
+import MouseEventsLesson from './MouseEventsLesson';
 
 function R3FApp() {
 
@@ -21,7 +22,7 @@ function R3FApp() {
                 gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }}
                 shadows
             >
-                <PortalLesson />
+                <MouseEventsLesson />
             </Canvas>
         </div>
     );
