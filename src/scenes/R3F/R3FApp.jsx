@@ -5,6 +5,7 @@ import { Leva } from 'leva';
 import DreiLesson from './DreiLesson';
 import DebugLesson from './DebugLesson';
 import EnvironmentStagingLesson from './EnvironmentStagingLesson';
+import LoadModelsLesson from './LoadModelsLesson';
 
 function onCreated(state) {
     // state.gl.setClearColor('#483D8B',1)
@@ -18,7 +19,7 @@ function R3FApp() {
         <div id="canvas-container" style={{ width: '100vw', height: '100vh' }}>
             <Leva collapsed />
             <Canvas dpr={[1, 2]} camera={{ position: [5, 5, 5], fov: 75 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }} shadows>
-                <EnvironmentStagingLesson />
+                <LoadModelsLesson />
             </Canvas>
         </div>
     );

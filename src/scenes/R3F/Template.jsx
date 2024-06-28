@@ -1,14 +1,11 @@
 /* eslint-disable react/no-unknown-property */
-import { useFrame, extend, useThree } from '@react-three/fiber';
+import { useFrame} from '@react-three/fiber';
 import { useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { Perf } from 'r3f-perf';
 
 function Template() {
     const cubeRef = useRef()
-    const { camera, gl } = useThree()
-
-    extend({ OrbitControls: OrbitControls })
 
     useFrame((state, delta) => {
         cubeRef.current.rotation.y += delta * 0.2
@@ -25,7 +22,7 @@ function Template() {
             {/* <hemisphereLight color={"red"} intensity={2} groundColor={"blue"}/> */}
 
 
-            <mesh ref={cubeRef} rotation-x={0.4} rotation-y={Math.PI * 0.25} position={[-2.5, 1, 2]}>
+            <mesh ref={cubeRef} rotation-y={Math.PI * 0.25} position={[-2.5, 1, 2]}>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="orange" />
             </mesh>
