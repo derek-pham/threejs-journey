@@ -45,11 +45,12 @@
   font-size: 14px;
   user-select: none;
   cursor: help;
-  transform: scale(0,0);
+  transform: scale(0, 0);
   transition: transform 0.3s;
 }
+
 .point.visible .label {
-  transform: scale(1,1);
+  transform: scale(1, 1);
 }
 
 .point .text {
@@ -73,4 +74,16 @@
 
 .point:hover .text {
   opacity: 1;
+}
+
+.r3f {
+  touch-action: none;
+}
+
+.htmlScreen iframe {
+  width: 1024px;
+  height: 670px;
+  border: none;
+  border-radius: 20px;
+  background: black;
 }

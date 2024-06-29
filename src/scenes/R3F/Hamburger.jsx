@@ -6,7 +6,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 // useGLTF Hook doesn't require the DRACOLoader instance 
 import { useGLTF, Clone } from '@react-three/drei';
 
-useGLTF.preload('/models/Hamburger.gltf')
+// useGLTF.preload('/models/Hamburger.gltf')
 
 export default function Hamburger() {
     const dracoLoader = new DRACOLoader();

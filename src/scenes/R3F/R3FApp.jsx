@@ -5,11 +5,12 @@ import { Leva } from 'leva';
 import DreiLesson from './DreiLesson';
 import DebugLesson from './DebugLesson';
 import EnvironmentStagingLesson from './EnvironmentStagingLesson';
-import LoadModelsLesson from './LoadModelsLesson';
+// import LoadModelsLesson from './LoadModelsLesson';
 import Text3DLesson from './Text3DLesson';
 import PortalLesson from './PortalLesson';
 import MouseEventsLesson from './MouseEventsLesson';
 import PostProcessingLesson from './PostProcessingLesson';
+import PortfolioLesson from './PortfolioLesson';
 
 function R3FApp() {
 
@@ -19,11 +20,12 @@ function R3FApp() {
             <Canvas
                 flat
                 dpr={[1, 2]}
-                camera={{ position: [0, 6, 8], fov: 75 }}
+                camera={{ position: [-3, 1, 1.75], fov: 75 }}
                 gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }}
                 shadows
+                className='r3f'
             >
-                <PostProcessingLesson />
+                <PortfolioLesson />
             </Canvas>
         </div>
     );
