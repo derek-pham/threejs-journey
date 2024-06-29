@@ -9,6 +9,7 @@ import LoadModelsLesson from './LoadModelsLesson';
 import Text3DLesson from './Text3DLesson';
 import PortalLesson from './PortalLesson';
 import MouseEventsLesson from './MouseEventsLesson';
+import PostProcessingLesson from './PostProcessingLesson';
 
 function R3FApp() {
 
@@ -22,7 +23,7 @@ function R3FApp() {
                 gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }}
                 shadows
             >
-                <MouseEventsLesson />
+                <PostProcessingLesson />
             </Canvas>
         </div>
     );

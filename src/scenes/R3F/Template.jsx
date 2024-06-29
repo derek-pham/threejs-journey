@@ -21,7 +21,6 @@ function Template() {
             {/* <directionalLight position={[6, 5, -3]} intensity={3} /> */}
             {/* <hemisphereLight color={"red"} intensity={2} groundColor={"blue"}/> */}
 
-
             <mesh ref={cubeRef} rotation-y={Math.PI * 0.25} position={[-2.5, 1, 2]}>
                 <boxGeometry args={[2, 2, 2]} />
                 <meshStandardMaterial color="orange" />

@@ -12,11 +12,13 @@
   "dependencies": {
     "@react-three/drei": "^9.107.1",
     "@react-three/fiber": "^8.16.8",
+    "@react-three/postprocessing": "^2.16.2",
     "@types/three": "^0.165.0",
     "cannon-es": "^0.20.0",
     "gsap": "3.12",
     "leva": "^0.9.35",
     "lil-gui": "^0.19.2",
+    "postprocessing": "^6.35.5",
     "r3f-perf": "7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
