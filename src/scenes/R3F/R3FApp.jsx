@@ -11,6 +11,7 @@ import PortalLesson from './PortalLesson';
 import MouseEventsLesson from './MouseEventsLesson';
 import PostProcessingLesson from './PostProcessingLesson';
 import PortfolioLesson from './PortfolioLesson';
+import PhysicsLesson from './PhysicsLesson';
 
 function R3FApp() {
 
@@ -20,12 +21,12 @@ function R3FApp() {
             <Canvas
                 flat
                 dpr={[1, 2]}
-                camera={{ position: [-3, 1, 1.75], fov: 75 }}
+                camera={{ position: [0, 6, 6], fov: 75 }}
                 gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, outputColorSpace: THREE.SRGBColorSpace }}
                 shadows
                 className='r3f'
             >
-                <PortfolioLesson />
+                <PhysicsLesson />
             </Canvas>
         </div>
     );
