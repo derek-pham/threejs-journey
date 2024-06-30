@@ -26,7 +26,8 @@
     "stats.js": "^0.17.0",
     "three": "^0.165.0",
     "three-bvh-csg": "^0.0.16",
-    "three-custom-shader-material": "5.4"
+    "three-custom-shader-material": "5.4",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
